@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Marauder\'s Map</string>
+    <string name="nfc_label">NFC URI: %1$s</string>
+    <string name="nfc_logical_label">NFC Logical ID: %1$s</string>
+    <string name="nfc_reader_label">NFC Reader Location: %1$s</string>
+    <string name="timestamp_label">Timestamp: %1$s</string>
+    <string name="set_location">Set NFC Reader Location</string>
+    <string name="reader_location_text">NFC Reader Location</string>
+    <string name="labe_update_text">Last NFC Update</string>
+    <string name="marauder_web_app_url">https://star-exploration.web.app</string>
+
+    <string-array name="locations">
+        <item>unknown</item>
+        <item>living_room</item>
+        <item>stromme_room</item>
+        <item>nick_room</item>
+        <item>cartland_room</item>
+        <item>hallway</item>
+        <item>bathroom</item>
+        <item>kitchen</item>
+        <item>patio</item>
+        <item>front_steps</item>
+        <item>alberto_room</item>
+    </string-array>
+</resources>
