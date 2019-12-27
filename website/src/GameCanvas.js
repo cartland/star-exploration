@@ -7,6 +7,10 @@ import { StarController } from './controller/StarController';
 import { StarGenerator } from './generator/StarGenerator';
 import { StarRenderer } from './render/StarRenderer';
 
+Number.prototype.map = function (in_min, in_max, out_min, out_max) {
+  return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
 class Canvas extends Component {
   constructor(props) {
     super(props);
@@ -39,7 +43,26 @@ class Canvas extends Component {
 
   drawAnimationFrame = (currentTime) => {
     const elapsed = this.updateElapsed(currentTime);
-    const flightSpeed = 10.0;
+    const minSpeed = 2;
+    const maxSpeed = 20;
+
+    let flightSpeed = minSpeed;
+    const boundaryA = 7000;
+    const boundaryB = boundaryA + 4000;
+    const boundaryC = boundaryB + 2000;
+    const boundaryD = boundaryC + 5000;
+    const bucket = currentTime % boundaryD;
+    if (bucket < boundaryA) {
+      flightSpeed = minSpeed;
+    } else if (bucket < boundaryB) {
+      // Increase from low to high.
+      flightSpeed = bucket.map(boundaryA, boundaryB, minSpeed, maxSpeed);
+    } else if (bucket < boundaryC) {
+      flightSpeed = maxSpeed;
+    } else {
+      // Decrease from high to low.
+      flightSpeed = bucket.map(boundaryC, boundaryD, maxSpeed, minSpeed);
+    }
 
     if (elapsed > 30) {
       const stars = this.starGenerator.generateStars(currentTime, elapsed, flightSpeed, this.state.dimensions);
