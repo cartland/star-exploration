@@ -8,12 +8,12 @@ export class StarGenerator {
     this.prng = null;
   }
 
-  generateStars = (currentTime, elapsed, gameSpeed, dimensions) => {
+  generateStars = (currentTime, elapsed, flightSpeed, dimensions) => {
     elapsed = Math.min(30, elapsed);
     if (this.prng == null) {
       this.prng = new Random(currentTime);
     }
-    const count = gameSpeed * elapsed / 10;
+    const count = flightSpeed * elapsed / 10;
     const stars = [];
     for (let i = 0; i < count; i++) {
       // Pick radius and angle.

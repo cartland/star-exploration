@@ -39,13 +39,13 @@ class Canvas extends Component {
 
   drawAnimationFrame = (currentTime) => {
     const elapsed = this.updateElapsed(currentTime);
-    const gameSpeed = 10.0;
+    const flightSpeed = 10.0;
 
     if (elapsed > 30) {
-      const stars = this.starGenerator.generateStars(currentTime, elapsed, gameSpeed, this.state.dimensions);
+      const stars = this.starGenerator.generateStars(currentTime, elapsed, flightSpeed, this.state.dimensions);
       this.starController.addStars(stars);
       // Updates.
-      this.starController.updateStars(currentTime, elapsed, gameSpeed, this.state.dimensions);
+      this.starController.updateStars(currentTime, elapsed, flightSpeed, this.state.dimensions);
       // Drawing.
       let context = this.canvas.current.getContext("2d")
       // Draw.

@@ -34,7 +34,7 @@ export class StarController {
     return this.starCount;
   }
 
-  updateStars = (currentTime, elapsed, gameSpeed, dimensions) => {
+  updateStars = (currentTime, elapsed, flightSpeed, dimensions) => {
     elapsed = Math.min(30, elapsed);
     // Display information.
     const center = dimensions.scale(0.5);
@@ -49,9 +49,9 @@ export class StarController {
       // Update proximity.
       const age = currentTime - star.creationTime;
       star.age = age;
-      star.proximity = gameSpeed * age;
+      star.proximity = flightSpeed * age;
       // Calculate outward velocity.
-      const pixelsPerMillisecondAtRadius = gameSpeed * 0.05 / maxRadius;
+      const pixelsPerMillisecondAtRadius = flightSpeed * 0.05 / maxRadius;
       const proximityFactor = 1 / 1000;
       let outwardVelocity = star.position.sub(center).scale(pixelsPerMillisecondAtRadius);
       let outwardSpeed = outwardVelocity.size();
