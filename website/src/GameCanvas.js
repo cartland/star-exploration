@@ -3,9 +3,9 @@ import getViewport from './getViewport';
 import { V } from './model/Vector2';
 
 import { BackgroundRenderer } from './render/BackgroundRenderer';
+import { StarRenderer } from './render/StarRenderer';
 import { StarController } from './controller/StarController';
 import { StarGenerator } from './generator/StarGenerator';
-import { StarRenderer } from './render/StarRenderer';
 
 Number.prototype.map = function (in_min, in_max, out_min, out_max) {
   return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
