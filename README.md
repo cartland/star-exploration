@@ -62,19 +62,19 @@ This was deployed to https://star-exploration.web.app with Firebase Hosting.
 
 # Summary of the Source Code
 
-* `website/public/index.html`: Main HTML page.
-* `website/src/App.js`: Create the React game canvas.
-* `website/src/GameCanvas.js`: Most of the website logic is in this file.
+* [`website/public/index.html`](website/public/index.html): Main HTML page.
+* [`website/src/App.js`](website/src/App.js): Create the React game canvas.
+* [`website/src/GameCanvas.js`](website/src/GameCanvas.js): Most of the website logic is in this file.
 * Files that render and draw the graphics
-  * `website/src/render/BackgroundRenderer.js`
-  * `website/src/render/StarRenderer.js`
+  * [`website/src/render/BackgroundRenderer.js`](website/src/render/BackgroundRenderer.js)
+  * [`website/src/render/StarRenderer.js`](website/src/render/StarRenderer.js)
 * Star update logic
-  * `website/src/controller/StarController.js`
+  * [`website/src/controller/StarController.js`](website/src/controller/StarController.js)
 * Generate random stars
-  * `website/src/generator/StarGenerator.js`
+  * [`website/src/generator/StarGenerator.js`](website/src/generator/StarGenerator.js)
 * Data models
-  * `website/src/model/Star.js`: Star information
-  * `website/src/model/Vector2.js`: We do math with (x, y) coordinates
+  * [`website/src/model/Star.js`](website/src/model/Star.js): Star information
+  * [`website/src/model/Vector2.js`](website/src/model/Vector2.js): We do math with (x, y) coordinates
    to add, subtract, and scale (x, y) coordinates. We shorten the usage in
    most of the code by renaming this class `V` when it is imported using
    `import { V } from './model/Vector2';`
@@ -94,3 +94,4 @@ This was deployed to https://star-exploration.web.app with Firebase Hosting.
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
