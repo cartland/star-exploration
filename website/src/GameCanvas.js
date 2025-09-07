@@ -25,6 +25,7 @@ import { StarRenderer } from './render/StarRenderer';
 import { StarController } from './controller/StarController';
 import { StarGenerator } from './generator/StarGenerator';
 
+// eslint-disable-next-line no-extend-native
 Number.prototype.map = function (in_min, in_max, out_min, out_max) {
   return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
@@ -112,7 +113,13 @@ class Canvas extends Component {
   }
 
   updateDimensions = () => {
+    if (!this.canvas.current) {
+      return;
+    }
     const context = this.canvas.current.getContext("2d");
+    if (!context) {
+      return;
+    }
     const viewport = getViewport();
     // Set canvas width and height to match the viewport.
     context.canvas.width = viewport.width;
