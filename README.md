@@ -16,6 +16,8 @@ This was deployed to https://star-exploration.web.app with Firebase Hosting.
 
 # Run website locally
 
+**Note:** This project was created with an older version of `react-scripts`. If you are using a recent version of Node.js (v17+), you may encounter errors after running `npm install`. If `npm start` fails, updating `react-scripts` should resolve the issue: `npm install react-scripts@latest`.
+
 1. Run `npm install` to install dependencies
 
     ```
