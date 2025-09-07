@@ -24,7 +24,7 @@ This phase focuses on testing the pure, reusable logic that the rest of the appl
 
 This phase tests the modules that contain the core "business logic" of the starfield simulation.
 
--   [ ] **Step 2.1: Test the Star State Management (`StarController.js`)**
+-   [x] **Step 2.1: Test the Star State Management (`StarController.js`)**
     -   **Action:** Create `StarController.test.js`.
     -   **Goal:** Write unit tests to verify that the controller correctly adds, deletes, and updates stars. We will simulate the passage of time and check that star positions and velocities are updated according to the rules.
 
