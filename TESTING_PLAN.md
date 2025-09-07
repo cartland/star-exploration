@@ -14,7 +14,7 @@ This phase focuses on testing the pure, reusable logic that the rest of the appl
     -   **Action:** Create `Vector2.test.js`.
     -   **Goal:** Write comprehensive unit tests for all methods (`add`, `sub`, `scale`, `size`). This ensures all position and velocity calculations are mathematically correct and reliable.
 
--   [ ] **Step 1.2: Test the Random Number Generation (`Random.js`)**
+-   [x] **Step 1.2: Test the Random Number Generation (`Random.js`)**
     -   **Action:** Create `Random.test.js`.
     -   **Goal:** Write unit tests to verify that the random number and integer generators produce values within the expected ranges.
 
