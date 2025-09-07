@@ -112,7 +112,13 @@ class Canvas extends Component {
   }
 
   updateDimensions = () => {
+    if (!this.canvas.current) {
+      return;
+    }
     const context = this.canvas.current.getContext("2d");
+    if (!context) {
+      return;
+    }
     const viewport = getViewport();
     // Set canvas width and height to match the viewport.
     context.canvas.width = viewport.width;
