@@ -19,8 +19,6 @@
 import { Star } from "../model/Star";
 import { V } from '../model/Vector2';
 
-import { Random } from '../util/Random';
-
 export class StarGenerator {
   constructor(prng) {
     this.prng = prng;
