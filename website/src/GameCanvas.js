@@ -25,11 +25,7 @@ import { StarRenderer } from './render/StarRenderer';
 import { StarController } from './controller/StarController';
 import { StarGenerator } from './generator/StarGenerator';
 import { Random } from './util/Random';
-
-// eslint-disable-next-line no-extend-native
-Number.prototype.map = function (in_min, in_max, out_min, out_max) {
-  return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
-}
+import { AnimationLoop } from './animation/AnimationLoop';
 
 class Canvas extends Component {
   constructor(props) {
@@ -38,75 +34,25 @@ class Canvas extends Component {
     this.state = {
       dimensions: V(800, 600)
     };
-    this.lastUpdated = null;
 
+    this.canvas = React.createRef();
     this.backgroundRenderer = new BackgroundRenderer();
     this.starRenderer = new StarRenderer();
     this.starController = new StarController();
     this.starGenerator = new StarGenerator(new Random(new Date().getTime()));
-    // Canvas.
-    this.canvas = React.createRef();
-    this.image = React.createRef();
-    this.drawAnimationFrame();
-  }
-
-  updateElapsed = (currentTime) => {
-    if (!currentTime) {
-      currentTime = 0;
-    }
-    if (this.lastUpdated === null) {
-      this.lastUpdated = currentTime;
-    }
-    const elapsed = currentTime - this.lastUpdated;
-    return elapsed;
-  }
-
-  drawAnimationFrame = (currentTime) => {
-    const elapsed = this.updateElapsed(currentTime);
-    const minSpeed = 2;
-    const maxSpeed = 20;
-
-    let flightSpeed = minSpeed;
-    const boundaryA = 7000;
-    const boundaryB = boundaryA + 4000;
-    const boundaryC = boundaryB + 2000;
-    const boundaryD = boundaryC + 5000;
-    const bucket = currentTime % boundaryD;
-    if (bucket < boundaryA) {
-      flightSpeed = minSpeed;
-    } else if (bucket < boundaryB) {
-      // Increase from low to high.
-      flightSpeed = bucket.map(boundaryA, boundaryB, minSpeed, maxSpeed);
-    } else if (bucket < boundaryC) {
-      flightSpeed = maxSpeed;
-    } else {
-      // Decrease from high to low.
-      flightSpeed = bucket.map(boundaryC, boundaryD, maxSpeed, minSpeed);
-    }
-
-    if (elapsed > 30) {
-      const stars = this.starGenerator.generateStars(currentTime, elapsed, flightSpeed, this.state.dimensions);
-      this.starController.addStars(stars);
-      // Updates.
-      this.starController.updateStars(currentTime, elapsed, flightSpeed, this.state.dimensions);
-      // Drawing.
-      let context = this.canvas.current.getContext("2d")
-      // Draw.
-      this.backgroundRenderer.drawBackground(context, this.state.dimensions);
-      let starCost = this.starRenderer.drawStars(context, this.starController.getStars());
-      // Profiling.
-      if (false) {
-        const fps = 1000 / elapsed;
-        console.log('Count:', this.starController.getStarCount(), 'Cost:', starCost, 'FPS', fps.toPrecision(3));
-      }
-      this.lastUpdated = currentTime;
-    }
-    requestAnimationFrame(this.drawAnimationFrame);
+    this.animationLoop = new AnimationLoop(
+      this.canvas,
+      this.starGenerator,
+      this.starController,
+      this.backgroundRenderer,
+      this.starRenderer
+    );
   }
 
   componentDidMount() {
     this.updateDimensions();
     window.addEventListener("resize", this.updateDimensions);
+    this.animationLoop.start();
   }
 
   componentWillUnmount() {
@@ -136,11 +82,11 @@ class Canvas extends Component {
 
   render() {
     return (
-      <div style={this.state.fullScreenStyle}>
+      <div>
         <canvas id="mainCanvas" ref={this.canvas} width={this.state.dimensions.x} height={this.state.dimensions.y} />
       </div>
     )
   }
 }
 
-export default Canvas
+export default Canvas;
