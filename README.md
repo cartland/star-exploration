@@ -27,7 +27,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 ### Prerequisites
 
-You will need [Node.js](https://nodejs.org) (which includes `npm`) installed on your system.
+You will need [Node.js](https://nodejs.org) (and [Yarn](https://yarnpkg.com/)) installed on your system.
 
 ### Installation & Running Locally
 
@@ -39,21 +39,21 @@ You will need [Node.js](https://nodejs.org) (which includes `npm`) installed on 
 
 2.  **Install dependencies:**
     ```sh
-    npm install
+    yarn install
     ```
-    *Note: This project was created with an older version of `react-scripts`. If you are using a recent version of Node.js (v17+), you may need to update `react-scripts` to resolve potential issues: `npm install react-scripts@latest`.*
+    *Note: This project was created with an older version of `react-scripts`. If you are using a recent version of Node.js (v17+), you may need to update `react-scripts` to resolve potential issues: `yarn add react-scripts@latest`.*
 
 3.  **Run the development server:**
     ```sh
-    npm start
+    yarn start
     ```
     This will open the application in your default browser at [http://localhost:3000](http://localhost:3000).
 
 ### Available Scripts
 
--   `npm start`: Runs the app in development mode.
--   `npm test`: Launches the test runner.
--   `npm run build`: Builds the app for production to the `build` folder.
+-   `yarn start`: Runs the app in development mode.
+-   `yarn test`: Launches the test runner.
+-   `yarn build`: Builds the app for production to the `build` folder.
 
 ## Deployment
 
@@ -61,7 +61,7 @@ This project is configured for easy deployment using [Firebase Hosting](https://
 
 1.  **Install the Firebase CLI:**
     ```sh
-    npm install -g firebase-tools
+    yarn global add firebase-tools
     ```
 
 2.  **Set your Firebase Project ID:**
@@ -72,7 +72,7 @@ This project is configured for easy deployment using [Firebase Hosting](https://
 
 3.  **Build the project:**
     ```sh
-    npm run build
+    yarn build
     ```
 
 4.  **Deploy to Firebase:**
