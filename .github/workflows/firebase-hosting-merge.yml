@@ -12,10 +12,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
-          cache: 'yarn'
-          cache-dependency-path: website/yarn.lock
+          cache: 'npm'
+          cache-dependency-path: website/package-lock.json
       - name: Install Dependencies and Build
-        run: yarn install --frozen-lockfile && yarn build
+        run: npm install && npm run build
         working-directory: ./website
       - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
