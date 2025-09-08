@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import StarRenderer from './StarRenderer';
+import { StarRenderer } from './StarRenderer';
 import 'jest-canvas-mock';
 
 describe('StarRenderer', () => {

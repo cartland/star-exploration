@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import BackgroundRenderer from './BackgroundRenderer';
+import { BackgroundRenderer } from './BackgroundRenderer';
 import 'jest-canvas-mock';
 
 describe('BackgroundRenderer', () => {
