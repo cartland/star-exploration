@@ -38,7 +38,7 @@ This phase tests the modules that contain the core "business logic" of the starf
 
 The `GameCanvas.js` component currently mixes React lifecycle logic with the core animation loop logic. Separating these concerns will make the code cleaner and much easier to test.
 
--   [ ] **Step 3.1: Refactor the Animation Loop**
+-   [x] **Step 3.1: Refactor the Animation Loop**
     -   **Action:** Create a new, plain JavaScript class or module (e.g., `src/animation/AnimationLoop.js`). Move the core animation logic (the `drawAnimationFrame` function and its related state like `lastUpdated`) from `GameCanvas.js` into this new module. The `GameCanvas.js` component will then simply create an instance of this `AnimationLoop` and start it.
     -   **Goal:** Isolate the animation logic from the React framework, improving separation of concerns. This is a pure refactoring step with no behavior change.
 
