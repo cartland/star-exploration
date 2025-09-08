@@ -22,15 +22,12 @@ import { V } from '../model/Vector2';
 import { Random } from '../util/Random';
 
 export class StarGenerator {
-  constructor() {
-    this.prng = null;
+  constructor(prng) {
+    this.prng = prng;
   }
 
   generateStars = (currentTime, elapsed, flightSpeed, dimensions) => {
     elapsed = Math.min(30, elapsed);
-    if (this.prng == null) {
-      this.prng = new Random(currentTime);
-    }
     const count = flightSpeed * elapsed / 10;
     const stars = [];
     for (let i = 0; i < count; i++) {

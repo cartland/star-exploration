@@ -24,6 +24,7 @@ import { BackgroundRenderer } from './render/BackgroundRenderer';
 import { StarRenderer } from './render/StarRenderer';
 import { StarController } from './controller/StarController';
 import { StarGenerator } from './generator/StarGenerator';
+import { Random } from './util/Random';
 
 // eslint-disable-next-line no-extend-native
 Number.prototype.map = function (in_min, in_max, out_min, out_max) {
@@ -42,7 +43,7 @@ class Canvas extends Component {
     this.backgroundRenderer = new BackgroundRenderer();
     this.starRenderer = new StarRenderer();
     this.starController = new StarController();
-    this.starGenerator = new StarGenerator();
+    this.starGenerator = new StarGenerator(new Random(new Date().getTime()));
     // Canvas.
     this.canvas = React.createRef();
     this.image = React.createRef();

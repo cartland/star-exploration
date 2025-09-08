@@ -28,9 +28,9 @@ This phase tests the modules that contain the core "business logic" of the starf
     -   **Action:** Create `StarController.test.js`.
     -   **Goal:** Write unit tests to verify that the controller correctly adds, deletes, and updates stars. We will simulate the passage of time and check that star positions and velocities are updated according to the rules.
 
--   [ ] **Step 2.2: Test the Star Generation (`StarGenerator.js`)**
-    -   **Action:** Create `StarGenerator.test.js`.
-    -   **Goal:** Write unit tests to ensure the generator creates the correct number of stars with the expected properties. This will require "mocking" the `Random.js` utility so that the tests are deterministic and repeatable.
+-   [x] **Step 2.2: Refactor and Test the Star Generation (`StarGenerator.js`)**
+    -   **Action:** Refactor `StarGenerator.js` to accept a required `prng` (pseudo-random number generator) in its constructor (Dependency Injection). Update `GameCanvas.js` to pass a `new Random()` instance.
+    -   **Goal:** Decouple the generator from the `Random` utility. Write unit tests using a mock `prng` to ensure the generator creates a predictable number of stars with deterministic properties.
 
 ---
 
