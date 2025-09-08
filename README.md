@@ -27,7 +27,7 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 ### Prerequisites
 
-You will need [Node.js](https://nodejs.org) (which includes `npm`) installed on your system.
+You will need [Node.js](https://nodejs.org) (and [npm](https://www.npmjs.com/)) installed on your system.
 
 ### Installation & Running Locally
 
@@ -41,7 +41,7 @@ You will need [Node.js](https://nodejs.org) (which includes `npm`) installed on 
     ```sh
     npm install
     ```
-    *Note: This project was created with an older version of `react-scripts`. If you are using a recent version of Node.js (v17+), you may need to update `react-scripts` to resolve potential issues: `npm install react-scripts@latest`.*
+    *Note: This project was created with an older version of `react-scripts`. If you are using a recent version of Node.js (v17+), you may need to update `react-scripts` to resolve potential issues: `npm add react-scripts@latest`.*
 
 3.  **Run the development server:**
     ```sh
@@ -53,7 +53,7 @@ You will need [Node.js](https://nodejs.org) (which includes `npm`) installed on 
 
 -   `npm start`: Runs the app in development mode.
 -   `npm test`: Launches the test runner.
--   `npm run build`: Builds the app for production to the `build` folder.
+-   `npm build`: Builds the app for production to the `build` folder.
 
 ## Deployment
 
@@ -72,7 +72,7 @@ This project is configured for easy deployment using [Firebase Hosting](https://
 
 3.  **Build the project:**
     ```sh
-    npm run build
+    npm build
     ```
 
 4.  **Deploy to Firebase:**
