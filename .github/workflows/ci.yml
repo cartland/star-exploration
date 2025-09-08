@@ -22,17 +22,17 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'yarn'
-        cache-dependency-path: website/yarn.lock
+        cache: 'npm'
+        cache-dependency-path: website/package-lock.json
 
     - name: Install dependencies
-      run: yarn install --frozen-lockfile
+      run: npm install
       working-directory: ./website
 
     - name: Build
-      run: yarn build
+      run: npm run build
       working-directory: ./website
 
     - name: Test
-      run: yarn test
+      run: npm run test
       working-directory: ./website
